@@ -66,11 +66,15 @@ const FieldEditor = ({ data }) => {
           <option value="object">Object</option>
         </select>
 
-        <input
-          type="checkbox"
-          checked={field.required}
-          onChange={(e) => handleRequiredChange(e, index)}
-        />
+        <label className="switch">
+          <input
+            type="checkbox"
+            checked={field.required}
+            onChange={(e) => handleRequiredChange(e, index)}
+          />
+
+          <span className="slider"></span>
+        </label>
 
         <button onClick={() => handleDeleteField(index)}>Delete Field</button>
 
