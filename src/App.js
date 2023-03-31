@@ -10,19 +10,31 @@ function App() {
             {
               name: "person",
               type: "object",
+              required: false,
               value: [
                 {
                   name: "name",
                   type: "object",
+                  required: false,
                   value: [
-                    { name: "firstName", type: "string", value: [] },
-                    { name: "lasttName", type: "string", value: [] },
+                    {
+                      name: "firstName",
+                      type: "string",
+                      required: false,
+                      value: [],
+                    },
+                    {
+                      name: "lasttName",
+                      type: "string",
+                      required: false,
+                      value: [],
+                    },
                   ],
                 },
               ],
             },
-            { name: "order", type: "string", value: [] },
-            { name: "class", type: "boolean", value: [] },
+            { name: "order", type: "string", required: true, value: [] },
+            { name: "class", type: "boolean", required: false, value: [] },
           ]}
         />
       </div>

@@ -23,11 +23,21 @@ const FieldEditor = ({ data }) => {
     });
   };
 
+  //this function will handle required change
+  const handleRequiredChange = (event, index) => {
+    const { checked } = event.target;
+    setFields((prevFields) => {
+      const newFields = [...prevFields];
+      newFields[index].required = checked;
+      return newFields;
+    });
+  };
+
   //this function will use for to add new field
   const handleAddField = () => {
     setFields((prevFields) => [
       ...prevFields,
-      { name: "", type: "string", value: [] },
+      { name: "", type: "string", required: false, value: [] },
     ]);
   };
 
@@ -55,6 +65,12 @@ const FieldEditor = ({ data }) => {
           <option value="boolean">Boolean</option>
           <option value="object">Object</option>
         </select>
+
+        <input
+          type="checkbox"
+          checked={field.required}
+          onChange={(e) => handleRequiredChange(e, index)}
+        />
 
         <button onClick={() => handleDeleteField(index)}>Delete Field</button>
 
